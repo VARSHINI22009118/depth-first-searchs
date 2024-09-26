@@ -8,7 +8,9 @@ def dfs(graph,start,visited,path):
     path.append(start)
     visited[start]=True
     for neighbour in graph[start]:
-       #type ur code here
+         if visited[neighbour]==False:
+            dfs(graph,neighbour,visited,path)
+            visited[neighbour]=True
     return path
 graph=defaultdict(list)
 n,e=map(int,input().split())
